@@ -6,10 +6,22 @@ import programa.clases.Aldeano;
 import java.util.Scanner;
 import java.util.TreeMap;
 
+/**
+ * Lanzador de las clases Aldea y Aldeano
+ * @see Aldea
+ * @see Aldeano
+ */
 public class Main {
     static Aldea galia = new Aldea(new TreeMap<>());
     static boolean ejecucion;
+    /**
+     * Scanner que usaremos a lo largo del programa para que el usuario pueda interaccionar con el programa
+     */
     static Scanner sc = new Scanner (System.in);
+
+    /**
+     * Método principal
+     */
     public static void main(String[] args) {
         ejecucion = true;
         String opcion;
@@ -26,7 +38,12 @@ public class Main {
         sc.close();
     }
 
-    private static boolean gestionarOpcion(String opcion) {
+    /**
+     * Aquí es donde se manejan las opciones que elige el usuario
+     * @param opcion opción que envía el usuario mediante input de teclado
+     * @return un valor booleano para determinar si se sigue ejecutando o no el programa
+     */
+    static boolean gestionarOpcion(String opcion) {
         switch (opcion) {
             case "1" -> {
                 System.out.println("Nombre del aldeano:");
@@ -82,7 +99,10 @@ public class Main {
         return ejecucion;
     }
 
-    private static void mostrarMenu() {
+    /**
+     * Menú del programa
+     */
+    static void mostrarMenu() {
         System.out.println("-".repeat(24) + " Menú " + "-".repeat(24));
         System.out.println("\t1. Agregar habitante.");
         System.out.println("\t2. Eliminar habitante.");

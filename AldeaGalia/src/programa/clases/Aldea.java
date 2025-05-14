@@ -3,25 +3,36 @@ package programa.clases;
 import java.io.*;
 import java.util.*;
 
+/**
+ * Es un lugar donde residen uno o muchos aldeanos
+ */
 public class Aldea {
+    /**
+     * Aquí es donde se almacenarán los aldeanos y sus identificadores numéricos
+     */
     Map<Integer, Aldeano> registro;
+    /**
+     * Archivo donde se almacenará el registro de la aldea
+     */
     static final File ARCHIVO_BINARIO = new File("src/programa/datos/registro.dat");
-
-    public Map<Integer, Aldeano> getRegistro() {
-        return registro;
-    }
-
-    public void setRegistro(Map<Integer, Aldeano> registro) {
-        this.registro = registro;
-    }
 
     public Aldea(Map<Integer, Aldeano> registro) {
         this.registro = registro;
     }
 
     /**
+     * Recibir el registro de la aldea
+     * @return registro de la aldea
+     */
+    public Map<Integer, Aldeano> getRegistro() {
+        return registro;
+    }
+
+
+
+    /**
      * Agregar un habitante en el registro
-     * @param a Objeto Aldeano para añadirlo al mapa
+     * @param a aldeano para añadirlo al mapa
      */
     public void agregarHabitante(Aldeano a) {
         registro.put(registro.size()+1,a);
@@ -66,7 +77,7 @@ public class Aldea {
      * Si es 1, se ordena por nombre.
      * Si es 2, se ordena por profesion.
      * Si es 3, se ordena por romanos derrotados.
-     * @param metodoDeOrdenacion En función del valor recibido como parámetro, se debe ordenar la
+     * @param metodoDeOrdenacion en función del valor recibido como parámetro, se debe ordenar la
      * vista del mapa
      */
     public void ordenarLista(int metodoDeOrdenacion) {
@@ -89,8 +100,8 @@ public class Aldea {
 
     /**
      * Busca por nombre y luego te muestra una lista y te pregunta con cuál aldeano te quedas
-     * @param nombre Nombre del Aldeano a buscar
-     * @return Aldeano seleccionado
+     * @param nombre nombre del Aldeano a buscar
+     * @return aldeano seleccionado
      */
     public Aldeano buscarHabitantePorNombre(String nombre) {
         Scanner sc = new Scanner(System.in);
@@ -114,8 +125,8 @@ public class Aldea {
 
     /**
      * Busca por profesión y luego te muestra una lista y te pregunta con cuál aldeano te quedas
-     * @param profesion Nombre del trabajo que realiza el Aldeano
-     * @return Aldeano seleccionado
+     * @param profesion nombre del trabajo que realiza el Aldeano
+     * @return aldeano seleccionado
      */
     public Aldeano buscarHabitantePorProfesion(String profesion) {
         Scanner sc = new Scanner(System.in);
